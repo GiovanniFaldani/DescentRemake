@@ -3,17 +3,13 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-    public int damage;
+    [SerializeField] public int damage;
     [SerializeField] private float speed;
     [SerializeField] private float lifetime;
+    private DamageSources source;
     private Vector3 direction;
 
     [SerializeField] GameObject explosionPrefab;
-
-    void Start()
-    {
-        
-    }
 
     // Move in a straight line
     void Update()
@@ -36,22 +32,29 @@ public class FireBall : MonoBehaviour
         }
     }
 
-    public void SetDirection(Vector3 newDirection)
+    public FireBall SetDirection(Vector3 newDirection)
     {
         this.direction = newDirection;
+        return this;
+    }
+
+    public FireBall SetSource(DamageSources newSource)
+    {
+        this.source = newSource;
+        return this;
     }
 
     // explode in a radius on wall or enemy hit
     private void OnTriggerEnter(Collider collider)
     {
-        // TODO add tag check for enemy or walls to explode
+        // TODO add source and tag check for enemy or walls to explode
     }
-
 
     public void Explode()
     {
+        // Inherit damage and firing source from parent component, detach from fireball transform before despawning
         GameObject explosion = Instantiate(explosionPrefab, this.transform);
-        explosion.GetComponent<Explosion>().SetDamage(damage);
+        explosion.GetComponent<Explosion>().SetDamage(damage).SetSource(source);
         explosion.transform.parent = null;
         Destroy(this.gameObject);
     }

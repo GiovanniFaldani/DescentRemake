@@ -4,6 +4,7 @@ public class Explosion : MonoBehaviour
 {
     private int damage;
     [SerializeField] private float lifetime = 0.5f;
+    private DamageSources source;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,8 +32,15 @@ public class Explosion : MonoBehaviour
         // deal damage here with IDamageable.TakeDamage
     }
 
-    public void SetDamage(int newDamage)
+    public Explosion SetDamage(int newDamage)
     {
         this.damage = newDamage;
+        return this;
+    }
+
+    public Explosion SetSource(DamageSources newSource)
+    {
+        this.source = newSource;
+        return this;
     }
 }

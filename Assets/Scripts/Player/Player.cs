@@ -41,13 +41,9 @@ public class Player : MonoBehaviour, IDamageable
     private int maxHealth = 6;
     private float attackWait = 0;
 
-    // attack counters
-    [Tooltip("Number of fireballs available to the player")]
-    public int fireBallNumber;
-    [Tooltip("Number of arcane missiles available to the player")]
-    public int arcaneMissileNumber;
-    [Tooltip("Number of mines available to the player")]
-    public int mineNumber;
+    // Attacks counter
+    [Tooltip("Energy available to the player")]
+    public int energyNumber;
     [Tooltip("Time between attacks, modifies fire rate")]
     public float attackCooldown;
 
@@ -161,19 +157,20 @@ public class Player : MonoBehaviour, IDamageable
         {
             if (fire1 > 0) // breath attack
             {
-
+                ac.BreatheFire(this.transform.right, attackSocketFront, this.transform.rotation);
+                attackWait = attackCooldown;
             }
-            if (fire2 > 0 && fireBallNumber > 0) // fireball attack
+            if (fire2 > 0 && energyNumber > 0) // fireball attack
             {
                 ac.ShootFireBall(this.transform.right, attackSocketFront);
                 attackWait = attackCooldown;
-                fireBallNumber -= 1;
+                energyNumber -= 1;
             }
-            if (fire3 > 0 && arcaneMissileNumber > 0) // arcane missile attack
+            if (fire3 > 0 && energyNumber > 0) // arcane missile attack
             {
 
             }
-            if (fire4 > 0 && mineNumber > 0) // mine attack
+            if (fire4 > 0 && energyNumber > 0) // mine attack
             {
 
             }

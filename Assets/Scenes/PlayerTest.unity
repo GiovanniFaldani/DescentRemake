@@ -458,8 +458,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 438571190195814770, guid: 1841b23de642952429189a44a7277555, type: 3}
+      propertyPath: m_Color.a
+      value: 0.48235294
+      objectReference: {fileID: 0}
     - target: {fileID: 1348327933460345354, guid: 1841b23de642952429189a44a7277555, type: 3}
       propertyPath: mineNumber
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348327933460345354, guid: 1841b23de642952429189a44a7277555, type: 3}
+      propertyPath: energyNumber
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1348327933460345354, guid: 1841b23de642952429189a44a7277555, type: 3}
@@ -526,6 +534,10 @@ PrefabInstance:
       propertyPath: fireBallPrefab
       value: 
       objectReference: {fileID: 4375633266291052330, guid: d4f9223d82acdef41ba824f11b65ba9c, type: 3}
+    - target: {fileID: 3113808551212856700, guid: 1841b23de642952429189a44a7277555, type: 3}
+      propertyPath: fireBreathPrefab
+      value: 
+      objectReference: {fileID: 7656437390682157883, guid: 7073b3e435b129c45a0a192bfea3fd90, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
