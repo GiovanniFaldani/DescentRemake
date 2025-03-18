@@ -11,7 +11,7 @@ public class FireBall : MonoBehaviour
 
     [SerializeField] GameObject explosionPrefab;
 
-    // Move in a straight line
+    // Move in a straight line for a period of time
     void Update()
     {
         Move();
@@ -47,7 +47,19 @@ public class FireBall : MonoBehaviour
     // explode in a radius on wall or enemy hit
     private void OnTriggerEnter(Collider collider)
     {
-        // TODO add source and tag check for enemy or walls to explode
+        // source and tag check for enemy, walls or player to explode
+        if (source == DamageSources.Player && (collider.CompareTag("Wall") || collider.CompareTag("Enemy")))
+        {
+            Explode();
+        }
+        else if (source == DamageSources.Enemy && (collider.CompareTag("Wall") || collider.CompareTag("Player")))
+        {
+            Explode();
+        }
+        else if (collider.CompareTag("Wall"))
+        {
+            Explode();
+        }
     }
 
     public void Explode()

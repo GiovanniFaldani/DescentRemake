@@ -26,7 +26,7 @@ public class Crosshair : MonoBehaviour
         crosshairSprite.color = hittableColor;
     }
 
-    private void ReturnNeitral()
+    private void ReturnNeutral()
     {
         crosshairSprite.color = baseColor;
     }

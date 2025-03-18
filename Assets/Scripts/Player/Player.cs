@@ -92,7 +92,8 @@ public class Player : MonoBehaviour, IDamageable
         lr = Input.GetAxisRaw("Horizontal");
         ud = Input.GetAxisRaw("Vertical");
         //roll = Input.GetAxisRaw("xRoll"); // deprecated, not used anymore
-        hovering = System.Convert.ToBoolean(Input.GetAxisRaw("Jump"));
+        //hovering = System.Convert.ToBoolean(Input.GetAxisRaw("Jump"));
+        hovering = Input.GetKey(KeyCode.Space);
 
         //attacks
         fire1 = Input.GetAxis("Fire1");
@@ -168,16 +169,20 @@ public class Player : MonoBehaviour, IDamageable
             }
             if (fire3 > 0 && energyNumber > 0) // arcane missile attack
             {
-
-            }
+                ac.ShootArcaneMissile(this.transform.right, attackSocketFront);
+                attackWait = attackCooldown;
+                energyNumber -= 1;
+            }                    
             if (fire4 > 0 && energyNumber > 0) // mine attack
             {
-
+                ac.PlaceMine(attackSocketBack);
+                attackWait = attackCooldown;
+                energyNumber -= 1;
             }
         }
     }
 
-    public void TakeDamage(int damage)
+    void IDamageable.TakeDamage(int damage)
     {
         this.health -= damage;
         if (health <= 0)

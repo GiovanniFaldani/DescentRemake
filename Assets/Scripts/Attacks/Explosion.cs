@@ -6,13 +6,6 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float lifetime = 0.5f;
     private DamageSources source;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Lifetime();
@@ -27,9 +20,17 @@ public class Explosion : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
         // deal damage here with IDamageable.TakeDamage
+        if (source == DamageSources.Player && (collider.CompareTag("Enemy") || collider.CompareTag("Wall")) && collider.gameObject.GetComponent<IDamageable>() != null)
+        {
+            collider.gameObject.GetComponent<IDamageable>().TakeDamage(damage); 
+        }
+        else if (source == DamageSources.Enemy && (collider.CompareTag("Enemy") || collider.CompareTag("Wall")) && collider.gameObject.GetComponent<IDamageable>() != null)
+        {
+            collider.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
+        }
     }
 
     public Explosion SetDamage(int newDamage)

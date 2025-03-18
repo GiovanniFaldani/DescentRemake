@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa17945e1cef44b43af3b1cab80ce79a, type: 2}
+  - {fileID: 2100000, guid: 9cd1eb99351e46749b2b9fa79a75c510, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,9 +96,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7629396860224758678}
   - component: {fileID: 6929836082352333775}
-  - component: {fileID: 6766796447022983954}
+  - component: {fileID: 4368806752552769623}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: ArcaneMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 393128428804596982}
@@ -141,7 +141,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6766796447022983954
+--- !u!114 &4368806752552769623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,7 +150,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4375633266291052330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 159ea878f6a2c29499192f2d6e0b97ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b722b9293b10484986ffa24201b7a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 0.5
+  damage: 2
+  speed: 10
+  lifetime: 5

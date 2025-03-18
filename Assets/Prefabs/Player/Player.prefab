@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3113808551212856700}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,10 +113,10 @@ MonoBehaviour:
   zSpeed: 1000
   xAngleSpeed: 10
   zAngleSpeed: 20
-  fireBallNumber: 0
-  arcaneMissileNumber: 0
-  mineNumber: 0
-  attackCooldown: 0
+  energyNumber: 10
+  attackCooldown: 0.5
+  attackSocketFront: {fileID: 8050266379432247915}
+  attackSocketBack: {fileID: 1508341554631076683}
 --- !u!114 &3113808551212856700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,12 +129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6bb287bb34644c4582de4e00a080a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireBreathPrefab: {fileID: 0}
-  fireBallPrefab: {fileID: 0}
+  fireBreathPrefab: {fileID: 7656437390682157883, guid: 7073b3e435b129c45a0a192bfea3fd90, type: 3}
+  fireBallPrefab: {fileID: 4375633266291052330, guid: d4f9223d82acdef41ba824f11b65ba9c, type: 3}
   arcaneMissilePrefab: {fileID: 0}
   minePrefab: {fileID: 0}
-  attackSocketForward: {fileID: 8050266379432247915}
-  attackSocketBack: {fileID: 1508341554631076683}
+  source: 0
 --- !u!1 &706087334615091427
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.48235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
