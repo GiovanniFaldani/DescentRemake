@@ -6,6 +6,11 @@ public enum DamageSources
     Enemy
 }
 
+public enum EggTypes
+{
+
+}
+
 public class GameLibrary
 {
      

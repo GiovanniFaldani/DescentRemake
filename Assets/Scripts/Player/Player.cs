@@ -73,7 +73,6 @@ public class Player : MonoBehaviour, IDamageable
         
     }
 
-
     private void Update()
     {
         HandleInputs();
@@ -139,7 +138,7 @@ public class Player : MonoBehaviour, IDamageable
             // apply rotation
             Vector3 deltaRotation = (
                         transform.right * xAngleSpeed * -lr +  // A rolls the player left (counter clockwise), and D rolls the player right (clockwise)
-                        transform.up +  // no rotation on Y axis in this mode
+                        //transform.up +  // no rotation on Y axis in this mode
                         transform.forward * -zAngleSpeed * ud   //W rotates the view down, S rotates the view up
                     )
                     * Time.fixedDeltaTime;

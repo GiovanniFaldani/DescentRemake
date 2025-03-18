@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Crosshair : MonoBehaviour
 {
-    [SerializeField] private Player playerRef;
+    [SerializeField] private Color hittableColor;
     private RawImage crosshairSprite;
     private Color baseColor;
 
@@ -18,10 +18,32 @@ public class Crosshair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // TODO check raycast to see if enemy is in crosshairs and turn red
+        CheckEnemy();
     }
 
-    private void ChangeOnHittable(Color hittableColor)
+    //check raycast to see if enemy is in crosshairs and turn red
+    private void CheckEnemy()
+    {
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hitData;
+        if (Physics.Raycast(ray, out hitData, float.MaxValue))
+        {
+            if (hitData.collider.CompareTag("Enemy"))
+            {
+                ChangeOnHittable();
+            }
+            else
+            {
+                ReturnNeutral();
+            }
+        }
+        else
+        {
+            ReturnNeutral();
+        }
+    }
+
+    private void ChangeOnHittable()
     {
         crosshairSprite.color = hittableColor;
     }
