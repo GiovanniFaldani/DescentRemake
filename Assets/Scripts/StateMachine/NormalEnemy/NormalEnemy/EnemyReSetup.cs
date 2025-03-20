@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class ShootBehaviour : StateMachineBehaviour
+public class EnemyReSetup : StateMachineBehaviour
 {
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        animator.SetInteger("StandByTypeIndex", Random.Range(0, 2));
+        animator.SetTrigger("EnemyIsResetupped");
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
