@@ -2,14 +2,15 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(AttackController))]
 public class Player : MonoBehaviour, IDamageable
 {
     // tweakable parameters
-    [SerializeField][Range(0, 6)] private int health = 6;
-    [SerializeField][Range(0,14)] private int shield = 0;
+    [Range(0, 6)] public int health = 6;
+    [Range(0,14)] public int shield = 0;
     
     // normal mode movement
     [Tooltip("Speed the player moves at by default in normal mode")]
@@ -35,17 +36,23 @@ public class Player : MonoBehaviour, IDamageable
 
     private float yAngleSpeed; // speed used for rotations on the Y axis (turning left and right) - unused
 
+    // bound variables
+    [SerializeField] private int maxShield = 14;
+    [SerializeField] private int maxHealth = 6;
+    [SerializeField] private int maxEnergy = 10;
+
     // private internals
-    private float baseMaxSpeed;
-    private int maxShield = 14;
-    private int maxHealth = 6;
+    private float baseMaxSpeed; // unused so far
     private float attackWait = 0;
 
-    // Attacks counter
+    // Attacks stats
     [Tooltip("Energy available to the player")]
-    public int energyNumber;
+    [Range(1,10)] public int energyNumber; // public for use in UI
     [Tooltip("Time between attacks, modifies fire rate")]
-    public float attackCooldown;
+    [SerializeField] private float attackCooldown;
+    [SerializeField] private int fireBallCost = 1;
+    [SerializeField] private int arcaneMissileCost = 2;
+    [SerializeField] private int mineCost = 1;
 
     // component shorthands
     private Rigidbody rb;
@@ -57,6 +64,14 @@ public class Player : MonoBehaviour, IDamageable
     private float gear, lr, ud, roll; // gear -> shift/ctrl input, lr -> A/D input, ud -> W/S input, roll -> unused
     private bool hovering; // hovering state, modifies all inputs
     private float fire1, fire2, fire3, fire4; // attack buttons
+
+    // Camera
+    //This is Main Camera in the Scene
+    private Camera m_MainCamera;
+    //This is the second Camera and is assigned in inspector
+    [SerializeField] private Camera m_CameraTwo;
+    // crosshair inserted via inspector
+    [SerializeField] private RawImage crosshair;
 
     private void Awake()
     {
@@ -70,13 +85,19 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        
+        //This gets the Main Camera from the Scene
+        m_MainCamera = Camera.main;
+        //This enables Main Camera
+        m_MainCamera.enabled = true;
+        //Use this to disable secondary Camera
+        m_CameraTwo.enabled = false;
     }
 
     private void Update()
     {
         HandleInputs();
         ApplyAttacks();
+        ChangeView();
     }
 
     private void FixedUpdate()
@@ -160,33 +181,87 @@ public class Player : MonoBehaviour, IDamageable
                 ac.BreatheFire(this.transform.right, attackSocketFront, this.transform.rotation);
                 attackWait = attackCooldown;
             }
-            if (fire2 > 0 && energyNumber > 0) // fireball attack
+            else if (fire2 > 0 && energyNumber > 0) // fireball attack
             {
                 ac.ShootFireBall(this.transform.right, attackSocketFront);
                 attackWait = attackCooldown;
-                energyNumber -= 1;
+                energyNumber -= fireBallCost;
             }
-            if (fire3 > 0 && energyNumber > 0) // arcane missile attack
+            else if (fire3 > 0 && energyNumber > 0) // arcane missile attack
             {
                 ac.ShootArcaneMissile(this.transform.right, attackSocketFront);
                 attackWait = attackCooldown;
-                energyNumber -= 1;
-            }                    
-            if (fire4 > 0 && energyNumber > 0) // mine attack
+                energyNumber -= arcaneMissileCost;
+            }
+            else if (fire4 > 0 && energyNumber > 0) // mine attack
             {
                 ac.PlaceMine(attackSocketBack);
                 attackWait = attackCooldown;
-                energyNumber -= 1;
+                energyNumber -= mineCost;
             }
         }
     }
 
+    public void ChangeView()
+    {
+        if (Input.GetKey(KeyCode.R))
+        {
+            //Enable the second Camera
+            m_CameraTwo.enabled = true;
+
+            //The Main first Camera is disabled
+            m_MainCamera.enabled = false;
+
+            //Disable crosshair
+            crosshair.enabled = false;
+        }
+        else
+        {
+            //Disable the second camera
+            m_CameraTwo.enabled = false;
+
+            //Enable the Main Camera
+            m_MainCamera.enabled = true;
+
+            // Enable crosshair 
+            crosshair.enabled = true;
+        }
+        
+    }
+
     void IDamageable.TakeDamage(int damage)
     {
-        this.health -= damage;
-        if (health <= 0)
+        if (shield > 0)
         {
-            // game over
+            shield -= damage;
+            if (shield < 0)
+            {
+                shield = 0;
+            }
         }
+        else
+        {
+            this.health -= damage;
+            if (health <= 0)
+            {
+                // game over
+            }
+        }
+    }
+
+    public void AddShield(int shieldToAdd)
+    {
+        if (shield + shieldToAdd < maxShield)
+            shield += shieldToAdd;
+        else
+            shield = maxShield;
+    }
+
+    public void AddEnergy(int energyToAdd)
+    {
+        if (energyNumber + energyToAdd < maxEnergy)
+            energyNumber += energyToAdd;
+        else
+            energyNumber = maxEnergy;
     }
 }

@@ -8,7 +8,14 @@ public enum DamageSources
 
 public enum EggTypes
 {
+    
+}
 
+public enum KeyTypes
+{
+    Yellow,
+    Blue,
+    Exit
 }
 
 public class GameLibrary

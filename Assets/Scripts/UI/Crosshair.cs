@@ -24,10 +24,12 @@ public class Crosshair : MonoBehaviour
     //check raycast to see if enemy is in crosshairs and turn red
     private void CheckEnemy()
     {
+        // raycast from the center of the screen
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hitData;
         if (Physics.Raycast(ray, out hitData, float.MaxValue))
         {
+            // if an enemy is in crosshair, turn the same color as in the Inspector
             if (hitData.collider.CompareTag("Enemy"))
             {
                 ChangeOnHittable();
