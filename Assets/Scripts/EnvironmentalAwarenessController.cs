@@ -18,7 +18,7 @@ public class EnvironmentalAwarenessController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             timer = 0;
-            gameObject.GetComponent<Animator>().GetBehaviour<ChaseBehaviour>().Target = other.gameObject;
+            gameObject.GetComponent<Animator>().GetBehaviour<BossChaseBehaviour>().Target = other.gameObject;
             gameObject.GetComponent<Animator>().SetTrigger("TargetAcquired");
             b_PlayerIsOutOfCollider = false;
             CancelInvoke("LoseTarget");

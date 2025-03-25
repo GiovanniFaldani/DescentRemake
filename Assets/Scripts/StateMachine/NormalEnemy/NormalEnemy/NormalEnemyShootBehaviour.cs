@@ -21,7 +21,8 @@ public class NormalEnemyShootBehaviour : StateMachineBehaviour
         }
         else
         {
-            AttackController_ref.BreatheFire(animator.transform.right, animator.transform, animator.transform.rotation * Quaternion.Euler(0, -90, 0));
+            AttackController_ref.BreatheFire(animator.transform.forward, animator.gameObject.transform, animator.transform.rotation * Quaternion.Euler(0, -90, 0));
+            timer = 0;
             animator.SetTrigger("HasAttacked");
         }  
     }

@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 6140769066789998125}
   - component: {fileID: 3953371343040764782}
   - component: {fileID: 6765736972746894331}
+  - component: {fileID: -2074261489860660322}
   m_Layer: 0
   m_Name: TankEnemyAI
   m_TagString: Untagged
@@ -281,3 +282,16 @@ MonoBehaviour:
   arcaneMissilePrefab: {fileID: 0}
   minePrefab: {fileID: 0}
   source: 1
+--- !u!114 &-2074261489860660322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6921953256861517279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad9036d0b4b101459da27f8a1cc8107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetLoseTime: 10

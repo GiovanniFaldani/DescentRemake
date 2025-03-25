@@ -22,6 +22,7 @@ public class FastEnemyShootBehaviour : StateMachineBehaviour
         else
         {
             AttackController_ref.ShootArcaneMissile(animator.transform.forward, animator.transform);
+            timer = 0;
             animator.SetTrigger("HasAttacked");
         }  
     }

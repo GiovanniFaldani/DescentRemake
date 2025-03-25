@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class TankEnemyShootBehaviour : StateMachineBehaviour
+public class BossEnemyShootBehaviour : StateMachineBehaviour
 {
     AttackController AttackController_ref;
     float timer;
-    [SerializeField] float AttackTime; 
+    [SerializeField] float RangedAttackTime;
+    [SerializeField] float MeleeAttackTime; 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -15,16 +16,33 @@ public class TankEnemyShootBehaviour : StateMachineBehaviour
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (timer < AttackTime)
-        {
-            timer += Time.deltaTime;
+        if (animator.GetInteger("BossAttackType") == 0)
+        {   
+            if(timer < MeleeAttackTime)
+            {
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                AttackController_ref.BreatheFire(animator.transform.forward, animator.gameObject.transform, animator.transform.rotation * Quaternion.Euler(0, -90, 0));
+                timer = 0;
+                animator.SetTrigger("HasAttacked");
+            }
         }
         else
         {
-            AttackController_ref.ShootFireBall(animator.transform.forward, animator.transform);
-            timer = 0;
-            animator.SetTrigger("HasAttacked");
-        }  
+            if (timer < RangedAttackTime)
+            {
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                AttackController_ref.ShootFireBall(animator.transform.forward, animator.transform);
+                timer = 0;
+                animator.SetTrigger("HasAttacked");
+            }
+        }
+        
     }
 
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
