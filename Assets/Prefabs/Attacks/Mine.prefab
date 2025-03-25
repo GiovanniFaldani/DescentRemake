@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: -4844955387964469621}
   m_Layer: 0
   m_Name: Mine
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,4 +155,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   lifetime: 60
-  explosionPrefab: {fileID: 4375633266291052330, guid: c8e67a378ed7ef545b9275afa4ac0f2c, type: 3}
+  explosionPrefab: {fileID: 4375633266291052330, guid: 5285df748ddeece4aad5fb8a18283ac8, type: 3}

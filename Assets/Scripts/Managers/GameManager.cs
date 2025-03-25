@@ -4,8 +4,18 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     // Total score obtained by the player 
-    [SerializeField] private int score;
-    [SerializeField] GameObject playerRef;
+    [SerializeField] public int score;
+    [SerializeField] public int eggsCollected;
+
+    // GameObject refs to orchestrate
+    [SerializeField] public GameObject playerUI;
+    [SerializeField] private GameObject playerRef;
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject winScreen;
+
+    // Win state variables
+    [SerializeField] private bool isBossDead = false;
+
 
     // Singleton behavior
     public static GameManager Instance { get; private set; }
@@ -49,8 +59,22 @@ public class GameManager : MonoBehaviour
         playerRef.GetComponent<Player>().AddEnergy(addedEnergy);
     }
 
+    public void KillBoss()
+    {
+        isBossDead = true;
+    }
+
     public void GameOver()
     {
-        Debug.Log("Game Over!");
+        gameOverScreen.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
+
+    public void WinGame()
+    {
+        // update score
+
+        winScreen.SetActive(true);
+        Time.timeScale = 0.0f;
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class ShieldRefill : MonoBehaviour
 {
+    [SerializeField] int score;
     [SerializeField] int addedShield;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +22,9 @@ public class ShieldRefill : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
+            GameManager.Instance.playerUI.GetComponent<PlayerUI>().PrintToGameLog(
+                "Regained " + addedShield.ToString() + " Shield!", 5f);
+            GameManager.Instance.AddScore(score);
             GameManager.Instance.AddPlayerShield(addedShield);
             Destroy(this.gameObject);
         }

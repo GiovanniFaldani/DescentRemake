@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 393128428804596982}
   - component: {fileID: 1431157103252953151}
   - component: {fileID: 9077801464938022893}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,9 +97,9 @@ GameObject:
   - component: {fileID: 7629396860224758678}
   - component: {fileID: 6929836082352333775}
   - component: {fileID: 4368806752552769623}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ArcaneMissile
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

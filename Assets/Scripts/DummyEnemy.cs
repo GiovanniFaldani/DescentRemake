@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
 
@@ -11,9 +12,16 @@ public class DummyEnemy : MonoBehaviour, IDamageable
     // mesh reference for flicker
     private MeshRenderer mesh;
 
+    // Attack controller reference
+    private AttackController ac;
+
+    // attack timer
+    [SerializeField] private float attackTimer = 1f;
+
     private void Start()
     {
         mesh = GetComponentInChildren<MeshRenderer>();
+        ac = GetComponentInChildren<AttackController>();
     }
 
     void Update()
@@ -22,6 +30,12 @@ public class DummyEnemy : MonoBehaviour, IDamageable
         {
             Destroy(this.gameObject);
             GameManager.Instance.AddScore(score);
+        }
+        attackTimer -= Time.deltaTime;
+        if (attackTimer <= 0)
+        {
+            Attack();
+            attackTimer = 1f;
         }
     }
 
@@ -42,5 +56,10 @@ public class DummyEnemy : MonoBehaviour, IDamageable
             mesh.enabled = !mesh.enabled;
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    private void Attack()
+    {
+        ac.BreatheFire(this.transform.forward, this.transform, this.transform.rotation);
     }
 }

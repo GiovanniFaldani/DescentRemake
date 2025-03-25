@@ -8,7 +8,8 @@ public enum DamageSources
 
 public enum EggTypes
 {
-    
+    Egg1,
+    Egg2
 }
 
 public enum KeyTypes

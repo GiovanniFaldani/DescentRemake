@@ -244,7 +244,7 @@ public class Player : MonoBehaviour, IDamageable
             this.health -= damage;
             if (health <= 0)
             {
-                // game over
+                GameManager.Instance.GameOver();
             }
         }
     }

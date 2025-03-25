@@ -103,7 +103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4508012797787627275
 Transform:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6108097616759717552
 MonoBehaviour:
@@ -240,5 +240,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73395f89473a3104692af09f6486ea94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 100
+  score: 500
   eggType: 0

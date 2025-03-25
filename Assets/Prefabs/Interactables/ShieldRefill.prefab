@@ -139,7 +139,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &18468231436147550
 MonoBehaviour:
@@ -153,5 +153,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00b4310ed2575b498db9524e4511e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 200
   addedShield: 2
-  playerRef: {fileID: 285046088746032933, guid: 1841b23de642952429189a44a7277555, type: 3}

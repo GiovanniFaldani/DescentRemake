@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6351030777301459955}
   - component: {fileID: 48540386294286073}
   - component: {fileID: 2382988836445639570}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,9 +503,9 @@ GameObject:
   - component: {fileID: 7539059266857507699}
   - component: {fileID: 7589965440501459583}
   - component: {fileID: 3439980622987090680}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FireBreath
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -41,6 +41,11 @@ public class Mine : MonoBehaviour
         {
             Explode();
         }
+        // mines can also be set off by attacks
+        else if (collider.CompareTag("Attack"))
+        {
+            Explode();
+        }
     }
 
     public void Explode()
