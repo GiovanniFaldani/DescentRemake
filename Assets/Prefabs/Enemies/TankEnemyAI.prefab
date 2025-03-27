@@ -103,9 +103,10 @@ GameObject:
   - component: {fileID: 3953371343040764782}
   - component: {fileID: 6765736972746894331}
   - component: {fileID: -2074261489860660322}
+  - component: {fileID: -732087276039118452}
   m_Layer: 8
   m_Name: TankEnemyAI
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,3 +296,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetLoseTime: 10
+--- !u!114 &-732087276039118452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6921953256861517279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a59f27fd8e631b42a0832792f56bd94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 300
+  health: 5
+  mesh: {fileID: 0}
+  attackTimer: 1
