@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6017600821039807731}
   - component: {fileID: 6989101223861916711}
   - component: {fileID: 5066222021982531720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 3953371343040764782}
   - component: {fileID: 6765736972746894331}
   - component: {fileID: -2074261489860660322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TankEnemyAI
   m_TagString: Untagged
   m_Icon: {fileID: 0}

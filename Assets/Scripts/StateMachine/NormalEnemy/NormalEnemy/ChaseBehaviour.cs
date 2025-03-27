@@ -114,12 +114,10 @@ public class ChaseBehaviour : StateMachineBehaviour
                 if (!Physics.Linecast(RayOrigin, RayOrigin + DXDirextion * 5, out HitObjectDx, 5))
                 {
                     AvoidObstacleDirection = DXDirextion;
-                    Debug.LogError("Direzione Scelta(DX1) : " + AvoidObstacleDirection);
                 }
                 else if (!Physics.Linecast(RayOrigin, RayOrigin + Vector3.right * 5, out HitObjectDx, 5))
                 {
                     AvoidObstacleDirection = animator.transform.right;
-                    Debug.LogError("Direzione Scelta(DX2) : " + AvoidObstacleDirection);
                 }
 
                 //controllo se la via a sinistra è libera
@@ -129,12 +127,10 @@ public class ChaseBehaviour : StateMachineBehaviour
                 if (!Physics.Linecast(RayOrigin, RayOrigin + SXDirextion * 5, out HitObjectSX, 5))
                 {
                     AvoidObstacleDirection = SXDirextion;
-                    Debug.LogError("Direzione Scelta(SX1) : " + AvoidObstacleDirection);
                 }
                 else if (!Physics.Linecast(RayOrigin, RayOrigin + Vector3.left * 5, out HitObjectSX, 5))
                 {
                     AvoidObstacleDirection = animator.transform.right * -1;
-                    Debug.LogError("Direzione Scelta(SX2) : " + AvoidObstacleDirection);
                 }
             }
         }

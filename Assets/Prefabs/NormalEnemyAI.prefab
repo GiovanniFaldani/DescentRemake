@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1652882641303233722}
   - component: {fileID: 3253417291243117240}
   - component: {fileID: 7570486499245723891}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 6495922277624723480}
   - component: {fileID: 1283093892718625622}
   - component: {fileID: 4342490397992841383}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NormalEnemyAI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
