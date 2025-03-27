@@ -18,15 +18,15 @@ public class EnvironmentalAwarenessController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             timer = 0;
-            if (gameObject.GetComponent<Animator>().GetBehaviour<BossChaseBehaviour>())
+            if (gameObject.GetComponentInParent<Animator>().GetBehaviour<BossChaseBehaviour>())
             {
-                gameObject.GetComponent<Animator>().GetBehaviour<BossChaseBehaviour>().Target = other.gameObject;
+                gameObject.GetComponentInParent<Animator>().GetBehaviour<BossChaseBehaviour>().Target = other.gameObject;
             }
             else
             {
-                gameObject.GetComponent<Animator>().GetBehaviour<ChaseBehaviour>().Target = other.gameObject;
+                gameObject.GetComponentInParent<Animator>().GetBehaviour<ChaseBehaviour>().Target = other.gameObject;
             }
-                gameObject.GetComponent<Animator>().SetTrigger("TargetAcquired");
+                gameObject.GetComponentInParent<Animator>().SetTrigger("TargetAcquired");
             b_PlayerIsOutOfCollider = false;
             CancelInvoke("LoseTarget");
         }
@@ -45,8 +45,8 @@ public class EnvironmentalAwarenessController : MonoBehaviour
         timer += 0.2f;
         if (timer >= TargetLoseTime)
         {
-            gameObject.GetComponent<Animator>().GetBehaviour<ChaseBehaviour>().Target = null;
-            gameObject.GetComponent<Animator>().SetTrigger("TargetIsLost");
+            gameObject.GetComponentInParent<Animator>().GetBehaviour<ChaseBehaviour>().Target = null;
+            gameObject.GetComponentInParent<Animator>().SetTrigger("TargetIsLost");
             timer = 0;
         }
     }

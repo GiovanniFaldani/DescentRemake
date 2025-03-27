@@ -27,7 +27,7 @@ public class Explosion : MonoBehaviour
         {
             collider.gameObject.GetComponent<IDamageable>().TakeDamage(damage); 
         }
-        else if (source == DamageSources.Enemy && (collider.CompareTag("Enemy") || collider.CompareTag("Wall")) && collider.gameObject.GetComponent<IDamageable>() != null)
+        else if (source == DamageSources.Enemy && (collider.CompareTag("Player") || collider.CompareTag("Wall")) && collider.gameObject.GetComponent<IDamageable>() != null)
         {
             collider.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
         }

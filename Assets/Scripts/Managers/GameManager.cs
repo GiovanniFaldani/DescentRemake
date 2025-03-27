@@ -13,8 +13,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerRef;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject winScreen;
-    [SerializeField] private GameObject frame;
-    [SerializeField] private GameObject miniMap;
 
     // Win state variables
     [SerializeField] private bool isBossDead = false;
@@ -75,8 +73,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
-        frame.SetActive(false);
-        miniMap.SetActive(false);
         Time.timeScale = 0.0f;
     }
 
@@ -88,8 +84,6 @@ public class GameManager : MonoBehaviour
 
         // similar to game over behavior
         winScreen.SetActive(true);
-        frame.SetActive(false);
-        miniMap.SetActive(false);
         Time.timeScale = 0.0f;
     }
 }
