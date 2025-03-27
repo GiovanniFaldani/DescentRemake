@@ -311,4 +311,4 @@ MonoBehaviour:
   score: 300
   health: 5
   mesh: {fileID: 0}
-  attackTimer: 1
+  attackTimer: 0

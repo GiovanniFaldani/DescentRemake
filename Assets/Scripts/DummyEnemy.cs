@@ -31,12 +31,12 @@ public class DummyEnemy : MonoBehaviour, IDamageable
             Destroy(this.gameObject);
             GameManager.Instance.AddScore(score);
         }
-        attackTimer -= Time.deltaTime;
-        if (attackTimer <= 0)
-        {
-            Attack();
-            attackTimer = 1f;
-        }
+        //attackTimer -= Time.deltaTime;
+        //if (attackTimer <= 0)
+        //{
+        //    Attack();
+        //    attackTimer = 1f;
+        //}
     }
 
     void IDamageable.TakeDamage(int damage)
