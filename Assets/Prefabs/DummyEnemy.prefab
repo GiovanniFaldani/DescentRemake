@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 300
   health: 5
+  mesh: {fileID: 5759082855597208355}
   attackTimer: 1
 --- !u!114 &5677631396219092146
 MonoBehaviour:

@@ -10,7 +10,7 @@ public class DummyEnemy : MonoBehaviour, IDamageable
     // Enemy HP
     [SerializeField] private int health = 5;
     // mesh reference for flicker
-    private MeshRenderer mesh;
+    [SerializeField] private GameObject mesh;
 
     // Attack controller reference
     private AttackController ac;
@@ -20,7 +20,7 @@ public class DummyEnemy : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        mesh = GetComponentInChildren<MeshRenderer>();
+        //mesh = GetComponentInChildren<MeshRenderer>();
         ac = GetComponentInChildren<AttackController>();
     }
 
@@ -53,7 +53,7 @@ public class DummyEnemy : MonoBehaviour, IDamageable
     {
         for (int i = 0; i < 4; i++)
         {
-            mesh.enabled = !mesh.enabled;
+            mesh.SetActive(!mesh.activeSelf);
             yield return new WaitForSeconds(0.1f);
         }
     }

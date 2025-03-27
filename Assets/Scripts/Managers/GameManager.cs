@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 // This singleton class is used to keep track of game state and player score
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerRef;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject winScreen;
+    [SerializeField] private GameObject frame;
+    [SerializeField] private GameObject miniMap;
 
     // Win state variables
     [SerializeField] private bool isBossDead = false;
@@ -64,17 +67,29 @@ public class GameManager : MonoBehaviour
         isBossDead = true;
     }
 
+    public bool IsBossDead()
+    {
+        return isBossDead;
+    }
+
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
+        frame.SetActive(false);
+        miniMap.SetActive(false);
         Time.timeScale = 0.0f;
     }
 
     public void WinGame()
     {
         // update score
+        SuperManager.Instance.UpdateHighScores(score);
+        SuperManager.Instance.SaveHighScores();
 
+        // similar to game over behavior
         winScreen.SetActive(true);
+        frame.SetActive(false);
+        miniMap.SetActive(false);
         Time.timeScale = 0.0f;
     }
 }

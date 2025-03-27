@@ -231,6 +231,8 @@ public class Player : MonoBehaviour, IDamageable
 
     void IDamageable.TakeDamage(int damage)
     {
+        GameManager.Instance.playerUI.GetComponent<PlayerUI>().PrintToGameLog(
+            "Took " + damage + " damage!", 5f);
         if (shield > 0)
         {
             shield -= damage;
