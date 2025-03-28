@@ -154,4 +154,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 200
-  addedShield: 2
+  addedShield: 4

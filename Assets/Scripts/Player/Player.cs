@@ -33,8 +33,8 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float xAngleSpeed; // speed used for rotations on the X axis (barrel rolling)
     [Tooltip("Speed used for rotations on the Z axis (looking up and down)")]
     [SerializeField] private float zAngleSpeed; // speed used for rotations on the Z axis (looking up and down)
-
-    private float yAngleSpeed; // speed used for rotations on the Y axis (turning left and right) - unused
+    [Tooltip("Speed used for rotations on the Y axis (turning left and right)")]
+    [SerializeField] private float yAngleSpeed; // speed used for rotations on the Y axis (turning left and right)
 
     // bound variables
     [SerializeField] private int maxShield = 14;
@@ -135,11 +135,18 @@ public class Player : MonoBehaviour, IDamageable
             // apply axis movement
             Vector3 deltaForce = (
                         transform.right * ud * xSpeed +
-                        transform.up * gear * ySpeed + 
-                        transform.forward * -lr * zSpeed // forward is at the player's left so the - is to get the right, idk why I'm using this system of reference
+                        transform.up * gear * ySpeed 
+                        //transform.forward * -lr * zSpeed // forward is at the player's left so the - is to get the right, idk why I'm using this system of reference
                     ) 
                     * Time.fixedDeltaTime;
             rb.AddForce(deltaForce);
+
+            // apply rotation
+            Vector3 deltaRotation = (
+                        transform.up * yAngleSpeed * lr  // look left and right
+                    )
+                    * Time.fixedDeltaTime;
+            rb.AddTorque(deltaRotation);
         }
         else // normal mode
         {

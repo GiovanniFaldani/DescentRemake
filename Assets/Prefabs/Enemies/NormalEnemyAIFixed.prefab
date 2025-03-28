@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 3998530526582035726}
   - component: {fileID: 4415997254150053697}
   m_Layer: 8
-  m_Name: NormalEnemyAI 1
+  m_Name: NormalEnemyAIFixed
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 300
-  health: 5
+  health: 3
   mesh: {fileID: 6894832785125901640}
   attackTimer: 1
 --- !u!95 &3049236977830795698

@@ -8,27 +8,27 @@ public class Key : MonoBehaviour
     // Assign from inspector the wall this key unlocks
     [SerializeField] GameObject AssociatedWall;
 
-    private MeshRenderer[] keyMeshes;
+    [SerializeField] private GameObject[] keyMeshes;
 
     private void Start()
     {
-        keyMeshes = GetComponentsInChildren<MeshRenderer>();
+        //keyMeshes = GetComponentsInChildren<MeshRenderer>();
 
-        foreach(MeshRenderer keyMesh in keyMeshes)
+        foreach(GameObject keyMesh in keyMeshes)
         {
-            keyMesh.enabled = false;
+            keyMesh.SetActive(false);
         }
 
         switch (keyType)
         {
             case KeyTypes.Yellow:
-                keyMeshes[0].enabled = true;
+                keyMeshes[0].SetActive(true);
                 break;
             case KeyTypes.Blue:
-                keyMeshes[1].enabled = true;
+                keyMeshes[1].SetActive(true);
                 break;
             case KeyTypes.Exit:
-                keyMeshes[2].enabled = true;
+                keyMeshes[2].SetActive(true);
                 break;
             default:
                 break;
