@@ -1,5 +1,3 @@
-using System.Transactions;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class SuperManager : MonoBehaviour

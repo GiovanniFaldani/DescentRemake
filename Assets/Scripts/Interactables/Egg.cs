@@ -15,10 +15,10 @@ public class Egg : MonoBehaviour
     {
         eggMeshes = GetComponentsInChildren<MeshRenderer>();
 
-        foreach(MeshRenderer eggMesh in eggMeshes)
-        {
-            eggMesh.enabled = false;
-        }
+        //foreach(MeshRenderer eggMesh in eggMeshes)
+        //{
+        //    eggMesh.enabled = false;
+        //}
 
         switch (eggType)
         {
