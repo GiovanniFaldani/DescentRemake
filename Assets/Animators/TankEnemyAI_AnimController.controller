@@ -298,7 +298,7 @@ AnimatorController:
   - m_Name: StandByTypeIndex
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 1
+    m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: bIsInRange
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144755fb2188b2846a2f851955c8f112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StandByTypeIndex: 1
+  StandByTypeIndex: 0
 --- !u!114 &2302331474946103438
 MonoBehaviour:
   m_ObjectHideFlags: 1

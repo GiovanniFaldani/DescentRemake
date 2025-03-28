@@ -1,10 +1,4 @@
-using System.Drawing;
-using Unity.VisualScripting;
-using UnityEditor.UI;
 using UnityEngine;
-using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.UI.Image;
 
 public class PatrolBehaviour : StateMachineBehaviour
 {
