@@ -293,7 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 1000
   health: 15
-  mesh: {fileID: 0}
+  mesh: {fileID: 412477296352536173}
   attackTimer: 0
 --- !u!136 &3697722092107017662
 CapsuleCollider:
